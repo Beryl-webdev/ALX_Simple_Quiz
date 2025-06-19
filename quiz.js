@@ -1,27 +1,26 @@
-// Step 1: Define the function
+// Function to check the user's selected answer
 function checkAnswer() {
-  // Step 2: Define the correct answer
-  const correctAnswer = "4";
+  const correctAnswer = "4"; // The correct answer
 
-  // Step 3: Get user's selected answer
+  // Select the checked radio button input
   const selectedOption = document.querySelector('input[name="quiz"]:checked');
 
-  // Step 4: Check if an option was selected
+  // Handle if no option is selected
   if (!selectedOption) {
-    document.getElementById("feedback").textContent = "Please select an answer.";
+    document.getElementById("feedback").textContent = "Please select an answer before submitting.";
     return;
   }
 
-  const userAnswer = selectedOption.value;
+  const userAnswer = selectedOption.value; // Get the selected value
 
-  // Step 5: Compare answers and give feedback
-  const feedback = document.getElementById("feedback");
+  // Compare user's answer to the correct answer and display feedback
   if (userAnswer === correctAnswer) {
-    feedback.textContent = "Correct! Well done.";
+    document.getElementById("feedback").textContent = "Correct! Well done.";
   } else {
-    feedback.textContent = "That's incorrect. Try again!";
+    document.getElementById("feedback").textContent = "That's incorrect. Try again!";
   }
 }
 
-// Step 6: Add event listener to submit button
+// Add event listener to the submit button
 document.getElementById("submit-answer").addEventListener("click", checkAnswer);
+
